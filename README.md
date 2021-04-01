@@ -14,6 +14,6 @@
 3. Check root-dir/coverage/index.html
 
 ## Visit online
-[View MarsRover on Netlify](https://amazing-bardeen-a57ad8.netlify.app/)
+[View MarsRover on Netlify](https://mars-rover-martacoscujuela.netlify.app/)
  
  
