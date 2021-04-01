@@ -1,0 +1,5 @@
+<div *ngIf="config" class="world" [ngStyle]="{'width': worldSize+'px', 'height':worldSize+'px'}">
+    <div class="grid" [ngStyle]="{'background-size': squareSize + 'px ' + squareSize + 'px'}"></div>
+    <app-rover [size]="squareSize" [currentCoordinate]="roverSafeCoordinate" (nextStep)="onRoverMoves($event)"></app-rover>
+    <app-obstacle  *ngFor="let obstacle of obstacles" [coordinate]="obstacle.coordinate" [size]="squareSize" ></app-obstacle>
+</div>

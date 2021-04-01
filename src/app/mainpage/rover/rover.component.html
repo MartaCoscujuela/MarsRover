@@ -1,0 +1,8 @@
+<div *ngIf="currentCoordinate" class="rover"
+[ngStyle]="{
+    'top': currentCoordinate.top*size + 'px', 
+    'left':  currentCoordinate.left*size +'px', 
+    'transform': 'rotate('+angle+'deg)',
+    'width': size+1+'px',
+    'height': size+1+'px'}">
+</div>

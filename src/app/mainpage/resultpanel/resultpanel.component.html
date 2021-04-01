@@ -1,0 +1,19 @@
+<div class="resultPannel">
+    <h4 [ngClass]="{'danger': !exploring && obstacle, 'success': !exploring && !obstacle && started}">Output of the current command sequence</h4>
+    <div *ngIf="!started" class="waiting">
+        The rover is waiting for instructions. Please, write the first sequence in the input box avobe. 
+    </div> 
+
+    <div class="results" *ngIf="!exploring && started">
+        <div class="success-message" *ngIf="!obstacle">
+            No obstacle was found.<span class="accent">The sequence was completed successfully.</span>
+        </div>
+        <div class="fail-message" *ngIf="obstacle">
+            Imminent collision detected! <span class="accent">The sequence was aborted</span>
+        </div>
+    </div>
+    <div class="results exploring-message" *ngIf="exploring && started">
+        The sequence being executed. The rover will inform about possible obstacles.
+        <div class="loading-container"><app-loading></app-loading></div>
+    </div>
+</div>

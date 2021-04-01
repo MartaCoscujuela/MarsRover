@@ -1,0 +1,42 @@
+@import "../shared/variables"
+
+.full-background
+    background-image: url("/assets/main.jpg")
+    background-size: cover
+    display: flex
+    min-height: 100vh
+    width: 100vw
+    color: $background-color
+
+    .wrapper
+        display: flex
+        flex-direction: row
+        width: 100%
+        max-width: 1120px
+        min-height: 400px
+        margin: auto
+        justify-content: space-between
+        padding: 80px 0
+
+        @media (max-width: $smaller)
+            flex-direction: column
+            padding: 0
+
+        .container
+            display: flex
+            align-items: center
+            flex: 1
+            padding: 1em 2em
+
+            @media (max-width: $smaller)
+                justify-content: center
+
+            .earth-control
+                display: flex
+                flex-direction: column
+
+        .world
+            justify-content: flex-end
+
+            @media (max-width: $smaller)
+                justify-content: center

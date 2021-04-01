@@ -1,0 +1,16 @@
+<form [formGroup]="configForm" (ngSubmit)="submit()">
+    <h4>Send your commands to the rover</h4>
+    <ul>
+        <li><span class="accent">f</span>: the rover will move forward</li>
+        <li><span class="accent">r</span>: the rover will turn right</li>
+        <li><span class="accent">l</span>: the rover will turn left</li>
+    </ul>
+    <div class="form-group">
+        <input formControlName="command" id="command" (input)="onUpdateCommand()" type="text" class="form-control"
+            placeholder="Next command" />
+    </div>
+    <div class="buttons">
+        <button type="submit" [disabled]="buttonDisabled" class="btn btn-primary">Send command</button>
+        <button type="button" (click)="back()" class="btn btn-back">Back</button>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+<form [formGroup]="configForm" (ngSubmit)="submit()">
+    <h4>Configure the world</h4>
+
+    <div class="form-group">
+        <input (keypress)="numberOnly($event)" formControlName="numberOfSquares" id="initialNumberOfSquares" type="number" class="form-control" placeholder="Squares per side"  min="0" >
+        <em *ngIf="numberOfSquares.invalid && numberOfSquares.dirty && numberOfSquares?.errors.required">This field is required</em>
+        <em *ngIf="numberOfSquares.invalid && numberOfSquares.dirty && numberOfSquares?.errors.incorrectNumberOfSquares && !numberOfSquares?.errors.required">{{numberOfSquares?.errors.incorrectNumberOfSquares}}</em>
+    </div> 
+
+    <div class="form-group">
+        <select formControlName="initialOrientation" id="initialOrientation" class="form-control" >
+            <option value="" disabled selected>Initial orientation</option>
+            <option [value]="0">North</option>
+            <option [value]="2">South</option>
+            <option [value]="1">East</option>
+            <option [value]="3">West</option>
+        </select>
+    </div>
+    <em *ngIf="initialOrientation.invalid && initialOrientation.dirty && initialOrientation?.errors.incorrectOrientation">{{initialOrientation?.errors.incorrectOrientation}}</em>
+
+    <div class="coordinates">
+        <div class="form-group half">
+            <input (keypress)="numberOnly($event)"  formControlName="xCoordinate" id="xCoordinate" type="number" class="form-control" placeholder="X coordinate"  min="1" >
+        </div>
+        <div class="form-group half">
+            <input (keypress)="numberOnly($event)"  formControlName="yCoordinate" id="yCoordinate" type="number" class="form-control" placeholder="Y coordinate"  min="1" >
+        </div>
+    </div>
+    
+    <em *ngIf="(xCoordinate.invalid || yCoordinate.invalid) && (xCoordinate.dirty && yCoordinate.dirty) && (xCoordinate?.errors?.required || yCoordinate?.errors?.required)">These fields are required</em>
+    <em *ngIf="(xCoordinate.invalid || yCoordinate.invalid) && (xCoordinate.dirty && yCoordinate.dirty) && (!xCoordinate?.errors?.required && !yCoordinate?.errors?.required) && (xCoordinate?.errors?.incorrectCoordinates || yCoordinate?.errors?.incorrectCoordinates)">{{xCoordinate?.errors?.incorrectCoordinates ? xCoordinate?.errors?.incorrectCoordinates : yCoordinate?.errors?.incorrectCoordinates}}</em>
+    
+    <div class="form-group">
+        <input (keypress)="numberOnly($event)" formControlName="obstacles" id="obstacles" type="number" min="0" class="form-control" placeholder="Number of obstacles"> 
+    </div>
+    <em *ngIf="obstacles.invalid && obstacles.dirty && obstacles?.errors.required">This field is
+        required</em>
+    <em
+        *ngIf="obstacles.invalid && obstacles.dirty && obstacles?.errors.incorrectObstacles && !obstacles?.errors.required">{{obstacles?.errors.incorrectObstacles}}</em>
+
+    <button type="submit" class="btn btn-primary" [disabled]="configForm.invalid" >SAVE</button>
+</form>
