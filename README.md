@@ -2,13 +2,18 @@
 
 ## Install andd run locally
 1. npm install
-2. Npm start
+2. npm start
 
 ## Run tests
 1. npm install
-2. Npm test
+2. npm test
+
+## Test coverage
+1. npm install
+2. ng test --no-watch --code-coverage
+3. Check root-dir/coverage/index.html
 
 ## Visit online
-[Angular CLI](https://github.com/angular/angular-cli)
+[View MarsRover on Netlify](https://amazing-bardeen-a57ad8.netlify.app/)
  
  
